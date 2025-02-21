@@ -71,11 +71,21 @@ int main(void)
 void TabelaASCII(void)
 {
 	clrscr();
-	for(int i=0;i<=255;i++)
+	int i, cor = 5, contadorL=1, contadorC=1;
+	for(i=0;i<=255;i++)
 	{
-		printf("%d \t %c \t %o \t %x\n",i,i,i,i);
+		textcolor(cor);
+		gotoxy(contadorC, contadorL++);
+		printf("%d %c %o %x",i,i,i,i);
+		
+		if(contadorL==31)
+		{
+			contadorL=1;
+			contadorC+=15;
+			cor++;
+		}
 	}
-	AperteEnter();
+	getch();
 }
 
 char Menu(void)
